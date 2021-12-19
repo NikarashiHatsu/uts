@@ -31,6 +31,7 @@
 	<link href="<?= base_url('css/style.min.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
 	<!-- Custome CSS-->
 	<link href="<?= base_url('css/custom/custom-style.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
+	<link href="<?= base_url('css/app.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
 
 	<!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
 	<link href="<?= base_url('js/plugins/perfect-scrollbar/perfect-scrollbar.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
@@ -51,7 +52,7 @@
             <?= $this->include('layouts/sidebar'); ?>
 
 			<section id="content">
-				<div class="container">
+				<div class="container p-6">
                     <?= $this->renderSection('content'); ?>
                 </div>
             </section>
@@ -70,6 +71,7 @@
 	<script type="text/javascript" src="<?= base_url('js/plugins/chartjs/chart.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= base_url('js/plugins/sparkline/jquery.sparkline.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= base_url('js/plugins/sparkline/sparkline-script.js') ?>"></script>
+	<script type="text/javascript" src="<?= base_url('js/app.js') ?>" defer></script>
 
     <script>
         $(document).ready(function() {
