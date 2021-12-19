@@ -23,25 +23,25 @@
                 </div>
             </div>
         </li>
-        <li class="bold">
+        <li class="bold <?= uri_string(true) == 'dashboard' ? 'active' : '' ?>">
             <a href="<?= base_url('/dashboard') ?>" class="waves-effect waves-cyan">
                 <i class="mdi-action-dashboard"></i>
                 Dashboard
             </a>
         </li>
-        <li class="bold">
+        <li class="bold <?= uri_string(true) == 'dashboard/kamar' ? 'active' : '' ?>">
             <a href="<?= base_url('/dashboard/kamar') ?>" class="waves-effect waves-cyan">
                 <i class="mdi-action-view-carousel"></i>
                 Kamar
             </a>
         </li>
-        <li class="bold">
+        <li class="bold <?= uri_string(true) == 'dashboard/pasien' ? 'active' : '' ?>">
             <a href="<?= base_url('/dashboard/pasien') ?>" class="waves-effect waves-cyan">
                 <i class="mdi-communication-email"></i>
                 Pasien
             </a>
         </li>
-        <li class="bold">
+        <li class="bold <?= uri_string(true) == 'dashboard/dokter' ? 'active' : '' ?>">
             <a href="<?= base_url('/dashboard/dokter') ?>" class="waves-action-invert-colors">
                 <i class="mdi-editor-insert-invitation"></i>
                 Dokter
