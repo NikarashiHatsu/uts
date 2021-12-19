@@ -50,6 +50,9 @@ $routes->group('auth', function(RouteCollection $routes) {
 
 $routes->group('dashboard', function(RouteCollection $routes) {
     $routes->get('', 'DashboardController::index');
+    $routes->presenter('kamar', ['controller' => 'KamarController']);
+    $routes->presenter('pasien', ['controller' => 'PasienController']);
+    $routes->presenter('dokter', ['controller' => 'DokterController']);
 });
 
 /*

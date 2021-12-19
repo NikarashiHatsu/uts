@@ -2,6 +2,6 @@
 
 <?= $this->section('content') ?>
 <div class="bg-white rounded p-6 shadow">
-    Selamat datang, Aghits Nidallah
+    Dokter
 </div>
 <?= $this->endSection() ?>
