@@ -11,7 +11,7 @@
             Kamar
         </p>
         <p>
-        // Total
+            <?= $kamar_count ?> kamar
         </p>
     </div>
     <div class="col-span-1 flex flex-col justify-center text-center p-6 rounded text-white bg-green-500 shadow-lg shadow-green-500/50">
@@ -20,7 +20,7 @@
             Pasien
         </p>
         <p>
-        // Total
+            <?= $pasien_count ?> pasien
         </p>
     </div>
     <div class="col-span-1 flex flex-col justify-center text-center p-6 rounded text-white bg-blue-500 shadow-lg shadow-blue-500/50">
@@ -29,7 +29,7 @@
             Dokter
         </p>
         <p>
-        // Total
+            <?= $dokter_count ?> dokter
         </p>
     </div>
 </div>
