@@ -27,7 +27,9 @@ class DokterController extends ResourceController
      */
     public function index()
     {
-        return view('dashboard/dokter/index');
+        return view('dashboard/dokter/index', [
+            'dokter' => $this->model->findAll(),
+        ]);
     }
 
     /**
@@ -47,7 +49,7 @@ class DokterController extends ResourceController
      */
     public function new()
     {
-        //
+        return view('dashboard/dokter/new');
     }
 
     /**
@@ -57,7 +59,20 @@ class DokterController extends ResourceController
      */
     public function create()
     {
-        //
+        try {
+            if (!$this->model->insert($this->request->getPost([
+                'nip',
+                'nama',
+                'jenis_kelamin',
+                'bidang_keahlian',
+            ]))) {
+                return redirect()->back()->with('validation_errors', $this->model->errors());
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+
+        return redirect()->back()->with('success', 'Berhasil mengubah data dokter');
     }
 
     /**
@@ -67,7 +82,9 @@ class DokterController extends ResourceController
      */
     public function edit($id = null)
     {
-        //
+        return view('dashboard/dokter/edit', [
+            'dokter' => $this->model->find($id),
+        ]);
     }
 
     /**
@@ -77,7 +94,20 @@ class DokterController extends ResourceController
      */
     public function update($id = null)
     {
-        //
+        try {
+            if (!$this->model->update($id, $this->request->getPost([
+                'nip',
+                'nama',
+                'jenis_kelamin',
+                'bidang_keahlian',
+            ]))) {
+                return redirect()->back()->with('validation_errors', $this->model->errors());
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+
+        return redirect()->back()->with('success', 'Berhasil mengubah data dokter');
     }
 
     /**
@@ -87,6 +117,12 @@ class DokterController extends ResourceController
      */
     public function delete($id = null)
     {
-        //
+        try {
+            $this->model->delete($id);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+
+        return redirect()->back()->with('success', 'Berhasil menghapus data dokter');
     }
 }
