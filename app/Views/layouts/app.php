@@ -37,6 +37,7 @@
 	<link href="<?= base_url('js/plugins/perfect-scrollbar/perfect-scrollbar.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
 	<link href="<?= base_url('js/plugins/jvectormap/jquery-jvectormap.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
 	<link href="<?= base_url('js/plugins/chartist-js/chartist.min.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
+	<link href="<?= base_url('css/dataTables.min.css') ?>" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -64,18 +65,21 @@
     Scripts
     ================================================ -->
 
-	<script type="text/javascript" src="<?= base_url('js/plugins/jquery-1.11.2.min.js') ?>"></script>
+	<script type="text/javascript" src="<?= base_url('js/jquery-3.6.0.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= base_url('js/materialize.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= base_url('js/plugins/perfect-scrollbar/perfect-scrollbar.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= base_url('js/plugins/chartist-js/chartist.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= base_url('js/plugins/chartjs/chart.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= base_url('js/plugins/sparkline/jquery.sparkline.min.js') ?>"></script>
 	<script type="text/javascript" src="<?= base_url('js/plugins/sparkline/sparkline-script.js') ?>"></script>
+	<script type="text/javascript" src="<?= base_url('js/plugins/sparkline/sparkline-script.js') ?>"></script>
+	<script type="text/javascript" src="<?= base_url('js/jquery.dataTables.min.js') ?>" defer></script>
 	<script type="text/javascript" src="<?= base_url('js/app.js') ?>" defer></script>
 
     <script>
         $(document).ready(function() {
             // Materialize.toast('<span>You can swipe me too!</span>', 3000);
+			$(".datatable").DataTable();
         })
     </script>
 </body>
