@@ -11,21 +11,48 @@ class DokterModel extends Model
     protected $primaryKey           = 'id';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
-    protected $returnType           = 'array';
+    protected $returnType           = 'object';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = [];
+    protected $allowedFields        = [
+        'nip',
+        'nama',
+        'jenis_kelamin',
+        'bidang_keahlian',
+    ];
 
     // Dates
-    protected $useTimestamps        = false;
+    protected $useTimestamps        = true;
     protected $dateFormat           = 'datetime';
     protected $createdField         = 'created_at';
     protected $updatedField         = 'updated_at';
     protected $deletedField         = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        'nip' => 'required|string',
+        'nama' => 'required|string',
+        'jenis_kelamin' => 'required|string',
+        'bidang_keahlian' => 'required|string',
+    ];
+    protected $validationMessages   = [
+        'nip' => [
+            'required' => 'NIP tidak boleh kosong',
+            'string' => 'NIP harus berupa string',
+        ],
+        'nama' => [
+            'required' => 'Nama tidak boleh kosong',
+            'string' => 'Nama harus berupa string',
+        ],
+        'jenis_kelamin' => [
+            'required' => 'Jenis kelamin tidak boleh kosong',
+            'string' => 'Jenis kelamin harus berupa string',
+        ],
+        'bidang_keahlian' => [
+            'required' => 'Bidang keahlian tidak boleh kosong',
+            'string' => 'Bidang keahlian harus berupa string',
+        ],
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

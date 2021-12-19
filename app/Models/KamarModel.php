@@ -11,21 +11,48 @@ class KamarModel extends Model
     protected $primaryKey           = 'id';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
-    protected $returnType           = 'array';
+    protected $returnType           = 'object';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = [];
+    protected $allowedFields        = [
+        'nama',
+        'kapasitas',
+        'daerah',
+        'dokter_id',
+    ];
 
     // Dates
-    protected $useTimestamps        = false;
+    protected $useTimestamps        = true;
     protected $dateFormat           = 'datetime';
     protected $createdField         = 'created_at';
     protected $updatedField         = 'updated_at';
     protected $deletedField         = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        'nama' => 'required|string',
+        'kapasitas' => 'required|integer',
+        'daerah' => 'required|string',
+        'dokter_id' => 'required|integer',
+    ];
+    protected $validationMessages   = [
+        'nama' => [
+            'required' => 'Nama tidak boleh kosong',
+            'string' => 'Nama harus berupa string',
+        ],
+        'kapasitas' => [
+            'required' => 'Kapasitas tidak boleh kosong',
+            'integer' => 'Kapasitas harus berupa integer',
+        ],
+        'daerah' => [
+            'required' => 'Daerah tidak boleh kosong',
+            'string' => 'Daerah harus berupa string',
+        ],
+        'dokter_id' => [
+            'required' => 'Dokter tidak boleh kosong',
+            'integer' => 'Dokter harus berupa integer',
+        ],
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

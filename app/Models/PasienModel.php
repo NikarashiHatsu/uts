@@ -11,21 +11,48 @@ class PasienModel extends Model
     protected $primaryKey           = 'id';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
-    protected $returnType           = 'array';
+    protected $returnType           = 'object';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = [];
+    protected $allowedFields        = [
+        'nama',
+        'alamat',
+        'umur',
+        'jenis_kelamin',
+    ];
 
     // Dates
-    protected $useTimestamps        = false;
+    protected $useTimestamps        = true;
     protected $dateFormat           = 'datetime';
     protected $createdField         = 'created_at';
     protected $updatedField         = 'updated_at';
     protected $deletedField         = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
+    protected $validationRules      = [
+        'nama' => 'required|string',
+        'alamat' => 'required|string',
+        'umur' => 'required|integer',
+        'jenis_kelamin' => 'required|string',
+    ];
+    protected $validationMessages   = [
+        'nama' => [
+            'required' => 'Nama tidak boleh kosong',
+            'string' => 'Nama harus berupa string',
+        ],
+        'alamat' => [
+            'required' => 'Alamat tidak boleh kosong',
+            'string' => 'Alamat harus berupa string',
+        ],
+        'umur' => [
+            'required' => 'Umur tidak boleh kosong',
+            'integer' => 'Umur harus berupa integer',
+        ],
+        'jenis_kelamin' => [
+            'required' => 'Jenis kelamin tidak boleh kosong',
+            'string' => 'Jenis kelamin harus berupa string',
+        ],
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
