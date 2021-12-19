@@ -49,7 +49,7 @@ class PasienController extends ResourceController
      */
     public function new()
     {
-        //
+        return view('dashboard/pasien/new');
     }
 
     /**
@@ -59,7 +59,20 @@ class PasienController extends ResourceController
      */
     public function create()
     {
-        //
+        try {
+            if (!$this->model->insert($this->request->getPost([
+                'nama',
+                'alamat',
+                'umur',
+                'jenis_kelamin',
+            ]))) {
+                return redirect()->back()->with('validation_errors', $this->model->errors());
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+
+        return redirect()->back()->with('success', 'Berhasil mengubah data pasien');
     }
 
     /**
@@ -69,7 +82,9 @@ class PasienController extends ResourceController
      */
     public function edit($id = null)
     {
-        //
+        return view('dashboard/pasien/edit', [
+            'pasien' => $this->model->find($id),
+        ]);
     }
 
     /**
@@ -79,7 +94,20 @@ class PasienController extends ResourceController
      */
     public function update($id = null)
     {
-        //
+        try {
+            if (!$this->model->update($id, $this->request->getPost([
+                'nama',
+                'alamat',
+                'umur',
+                'jenis_kelamin',
+            ]))) {
+                return redirect()->back()->with('validation_errors', $this->model->errors());
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+
+        return redirect()->back()->with('success', 'Berhasil mengubah data pasien');
     }
 
     /**

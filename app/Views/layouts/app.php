@@ -27,6 +27,7 @@
 	<!-- For Windows Phone -->
 
 	<!-- CORE CSS-->
+	<link href="<?= base_url('css/dataTables.min.css') ?>" type="text/css" rel="stylesheet">
 	<link href="<?= base_url('css/materialize.min.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
 	<link href="<?= base_url('css/style.min.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
 	<!-- Custome CSS-->
@@ -37,7 +38,6 @@
 	<link href="<?= base_url('js/plugins/perfect-scrollbar/perfect-scrollbar.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
 	<link href="<?= base_url('js/plugins/jvectormap/jquery-jvectormap.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
 	<link href="<?= base_url('js/plugins/chartist-js/chartist.min.css') ?>" type="text/css" rel="stylesheet" media="screen,projection">
-	<link href="<?= base_url('css/dataTables.min.css') ?>" type="text/css" rel="stylesheet">
 </head>
 
 <body>
