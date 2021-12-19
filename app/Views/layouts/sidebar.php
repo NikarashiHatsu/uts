@@ -24,25 +24,25 @@
             </div>
         </li>
         <li class="bold">
-            <a href="index.html" class="waves-effect waves-cyan">
+            <a href="<?= base_url('/dashboard') ?>" class="waves-effect waves-cyan">
                 <i class="mdi-action-dashboard"></i>
                 Dashboard
             </a>
         </li>
         <li class="bold">
-            <a href="index.html" class="waves-effect waves-cyan">
+            <a href="<?= base_url('/dashboard/kamar') ?>" class="waves-effect waves-cyan">
                 <i class="mdi-action-view-carousel"></i>
                 Kamar
             </a>
         </li>
         <li class="bold">
-            <a href="index.html" class="waves-effect waves-cyan">
+            <a href="<?= base_url('/dashboard/pasien') ?>" class="waves-effect waves-cyan">
                 <i class="mdi-communication-email"></i>
                 Pasien
             </a>
         </li>
         <li class="bold">
-            <a href="index.html" class="waves-action-invert-colors">
+            <a href="<?= base_url('/dashboard/dokter') ?>" class="waves-action-invert-colors">
                 <i class="mdi-editor-insert-invitation"></i>
                 Dokter
             </a>
