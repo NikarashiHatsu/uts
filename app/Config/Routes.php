@@ -48,6 +48,10 @@ $routes->group('auth', function(RouteCollection $routes) {
     $routes->get('logout', 'Auth\LogoutController::logout');
 });
 
+$routes->group('dashboard', function(RouteCollection $routes) {
+    $routes->get('', 'DashboardController::index');
+});
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
