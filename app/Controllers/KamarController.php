@@ -2,11 +2,12 @@
 
 namespace App\Controllers;
 
+use App\Models\DokterModel;
 use App\Models\KamarModel;
 use CodeIgniter\RESTful\ResourceController;
 
 /**
- * Controller untuk dokter
+ * Controller untuk kamar
  *
  * @author      Aghits Nidallah
  * @nim         190511038
@@ -27,7 +28,13 @@ class KamarController extends ResourceController
      */
     public function index()
     {
-        return view('dashboard/kamar/index');
+        return view('dashboard/kamar/index', [
+            'kamar' => $this
+                ->model
+                ->select('kamars.*, dokters.nama AS nama_dokter, dokters.bidang_keahlian')
+                ->join('dokters', 'dokters.id = kamars.dokter_id')
+                ->findAll(),
+        ]);
     }
 
     /**
@@ -47,7 +54,9 @@ class KamarController extends ResourceController
      */
     public function new()
     {
-        //
+        return view('dashboard/kamar/new', [
+            'dokter' => (new DokterModel)->findAll(),
+        ]);
     }
 
     /**
@@ -57,7 +66,20 @@ class KamarController extends ResourceController
      */
     public function create()
     {
-        //
+        try {
+            if (!$this->model->insert($this->request->getPost([
+                'nama',
+                'kapasitas',
+                'daerah',
+                'dokter_id',
+            ]))) {
+                return redirect()->back()->with('validation_errors', $this->model->errors());
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+
+        return redirect()->back()->with('success', 'Berhasil mengubah data kamar');
     }
 
     /**
@@ -67,7 +89,10 @@ class KamarController extends ResourceController
      */
     public function edit($id = null)
     {
-        //
+        return view('dashboard/kamar/edit', [
+            'kamar' => $this->model->find($id),
+            'dokter' => (new DokterModel)->findAll(),
+        ]);
     }
 
     /**
@@ -77,7 +102,20 @@ class KamarController extends ResourceController
      */
     public function update($id = null)
     {
-        //
+        try {
+            if (!$this->model->update($id, $this->request->getPost([
+                'nama',
+                'kapasitas',
+                'daerah',
+                'dokter_id',
+            ]))) {
+                return redirect()->back()->with('validation_errors', $this->model->errors());
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+
+        return redirect()->back()->with('success', 'Berhasil mengubah data kamar');
     }
 
     /**
@@ -87,6 +125,12 @@ class KamarController extends ResourceController
      */
     public function delete($id = null)
     {
-        //
+        try {
+            $this->model->delete($id);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+
+        return redirect()->back()->with('success', 'Berhasil menghapus data kamar');
     }
 }
