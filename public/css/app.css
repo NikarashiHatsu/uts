@@ -269,6 +269,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: static;
 }.fixed {
   position: fixed;
+}.col-span-1 {
+  grid-column: span 1 / span 1;
 }.-mx-3 {
   margin-left: -0.75rem;
   margin-right: -0.75rem;
@@ -290,6 +292,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: flex;
 }.table {
   display: table;
+}.grid {
+  display: grid;
 }.hidden {
   display: none;
 }.w-full {
@@ -298,14 +302,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}.grid-flow-row {
+  grid-auto-flow: row;
+}.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}.flex-col {
+  flex-direction: column;
 }.flex-wrap {
   flex-wrap: wrap;
 }.items-center {
   align-items: center;
 }.justify-end {
   justify-content: flex-end;
+}.justify-center {
+  justify-content: center;
 }.justify-between {
   justify-content: space-between;
+}.gap-6 {
+  gap: 1.5rem;
 }.rounded {
   border-radius: 0.25rem;
 }.border {
@@ -357,6 +371,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
 }.font-bold {
   font-weight: 700;
 }.uppercase {
@@ -379,6 +399,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
+}.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }.underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -398,6 +421,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow: var(--tw-shadow-colored);
 }.shadow-red-500\/50 {
   --tw-shadow-color: rgb(239 68 68 / 0.5);
+  --tw-shadow: var(--tw-shadow-colored);
+}.shadow-blue-500\/50 {
+  --tw-shadow-color: rgb(59 130 246 / 0.5);
   --tw-shadow: var(--tw-shadow-colored);
 }.outline {
   outline-style: solid;
