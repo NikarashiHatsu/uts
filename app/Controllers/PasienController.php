@@ -5,6 +5,17 @@ namespace App\Controllers;
 use App\Models\PasienModel;
 use CodeIgniter\RESTful\ResourceController;
 
+/**
+ * Controller untuk dokter
+ *
+ * @author      Aghits Nidallah
+ * @nim         190511038
+ * @kelas       19/C1C/K1
+ * @tanggal     2021/12-19
+ *
+ * @resource    App\Models\PasienModel
+ * @package     App\Controllers
+ */
 class PasienController extends ResourceController
 {
     protected $modelName = PasienModel::class;
@@ -16,7 +27,9 @@ class PasienController extends ResourceController
      */
     public function index()
     {
-        return view('dashboard/pasien/index');
+        return view('dashboard/pasien/index', [
+            'pasien' => $this->model->findAll(),
+        ]);
     }
 
     /**
@@ -76,6 +89,12 @@ class PasienController extends ResourceController
      */
     public function delete($id = null)
     {
-        //
+        try {
+            $this->model->delete($id);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+
+        return redirect()->back()->with('success', 'Berhasil menghapus data pasien');
     }
 }

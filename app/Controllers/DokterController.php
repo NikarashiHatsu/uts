@@ -5,6 +5,17 @@ namespace App\Controllers;
 use App\Models\DokterModel;
 use CodeIgniter\RESTful\ResourceController;
 
+/**
+ * Controller untuk dokter
+ *
+ * @author      Aghits Nidallah
+ * @nim         190511038
+ * @kelas       19/C1C/K1
+ * @tanggal     2021/12-19
+ *
+ * @resource    App\Models\DokterModel
+ * @package     App\Controllers
+ */
 class DokterController extends ResourceController
 {
     protected $modelName = DokterModel::class;
